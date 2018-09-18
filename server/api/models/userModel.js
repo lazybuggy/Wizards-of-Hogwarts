@@ -2,13 +2,20 @@ var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
 var UserSchema = new Schema({
-    name: {
+    firstName: {
         type: String,
         required: "Something sassy that sorting hat would say"
     },
-    Created_date: {
-        type: Date,
-        default: Date.now
+    lastName: {
+        type: String,
+        required: "Something sassy that sorting hat would say"
+    },
+    gender: {
+        type: [{
+            type: String,
+            enum: ["female","male"]
+        }],
+        required: "Something sassy that sorting hat would say"
     },
     house: {
         type: [{

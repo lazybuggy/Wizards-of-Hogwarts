@@ -1,10 +1,19 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
+import NewUserForm from './NewUserForm';
 
 class App extends Component {
-  state = {users: [], characters:[]}
-  
+  constructor(props){
+    super(props);
+    this.showUserForm = this.showUserForm.bind(this);
+    this.state = {
+            users: [], 
+            characters:[],
+            showForm: false
+    };
+  }
+
   componentDidMount(){
     fetch('/users')
       .then(res => res.json())
@@ -12,7 +21,10 @@ class App extends Component {
 
     fetch('/characters')
       .then(res => res.json())
-      .then(characters => this.setState({characters}));
+ //     .then(characters => this.setState({characters}));
+  }
+  showUserForm(){
+    this.setState({showForm: !this.state.showForm})
   }
 
   render() {
@@ -25,6 +37,15 @@ class App extends Component {
         <p className="App-intro">
           To get started, edit <code>src/App.js</code> and save to reload.
         </p>
+
+        {this.state.showForm ? 
+          null : <button onClick={this.showUserForm}>Get Started</button>
+        }
+        {this.state.showForm ? 
+          <NewUserForm/> : null
+        }
+        
+        <p>hi {String(this.state.showForm)}</p>
 
         <h1>Users</h1>
         {this.state.users.map
@@ -39,5 +60,6 @@ class App extends Component {
     );
   }
 }
+
 
 export default App;
