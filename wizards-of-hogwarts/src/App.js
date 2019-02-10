@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
 import NewUserForm from './NewUserForm';
+import MainForm from './AdventureGame';
+import { Container } from 'semantic-ui-react'
 
 class App extends Component {
   constructor(props){
@@ -38,12 +40,14 @@ class App extends Component {
           To get started, edit <code>src/App.js</code> and save to reload.
         </p>
 
-        {this.state.showForm ? 
-          null : <button onClick={this.showUserForm}>Get Started</button>
-        }
-        {this.state.showForm ? 
-          <NewUserForm/> : null
-        }
+        <Container textAlign='center'>
+          {this.state.showForm ? 
+            null : <button onClick={this.showUserForm}>Get Started</button>
+          }
+          {this.state.showForm ? 
+            <MainForm/> : null
+          }
+        </Container>
         
         <p>hi {String(this.state.showForm)}</p>
 

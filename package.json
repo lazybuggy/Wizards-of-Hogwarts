@@ -16,6 +16,7 @@
   },
   "dependencies": {
     "body-parser": "^1.18.3",
-    "mongodb": "^3.1.6"
+    "mongodb": "^3.1.6",
+    "semantic-ui-react": "^0.85.0"
   }
 }
