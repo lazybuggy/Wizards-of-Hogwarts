@@ -4,6 +4,11 @@ import './NewUserForm.css';
 
 class NewUserForm extends Component{
 
+  // state = {
+  //   genderSelection: null,
+  //   bloodStatusSelection: null
+  // }
+
   startTheMagic = (e) => {
     e.preventDefault()
     this.props.nextStep()
@@ -16,6 +21,8 @@ class NewUserForm extends Component{
 
     render(){
       const {values} = this.props;
+      // const {genderSelection} = this.state;
+
       return(
         <Form>
           <h1 className="ui centered">Welcome to Hogwarts School of Witchcraft and Wizardry! Who Might you be?</h1>
@@ -40,25 +47,29 @@ class NewUserForm extends Component{
           <Form.Field>
           <label>What are you?</label>
             <Dropdown
-              placeholder=""
+              button className='icon'
+              fluid labeled icon='user'
+              placeholder="Might you be a wizard or a witch?"
               defaultValue={values.gender}
               fluid selection options={[
-                {text:'Witch', value:'Witch'}, 
-                {text:'Wizard', value:'Wizard'}]} 
-              onChange={this.props.handleChange('gender')}
+                {key:'wit', text:'Witch', value:'witch'}, 
+                {key:'wiz', text:'Wizard', value:'wizard'}]} 
+              onChange={this.props.handleChangeDropdown('gender')}
             />
           </Form.Field>
 
           <Form.Field>
           <label>What are you?</label>
             <Dropdown
-              placeholder=""
+              button className='icon'
+              fluid labeled icon='tint'
+              placeholder="What blood runs through your veins?"
               defaultValue={values.bloodStatus}
               fluid selection options={[
-                {text:'Pure blood', value:'Pure blood'}, 
-                {text:'Half blood', value:'Half blood'}, 
-                {text:'Unknown', value:'Unknown'}]}
-              onChange={this.props.handleChange('bloodStatus')}
+                {key:'pure', text:'Pure blood', value:'pure-blood'}, 
+                {key:'half', text:'Half blood', value:'half-blood'}, 
+                {key:'unkn', text:'Unknown', value:'unknown'}]}
+              onChange={this.props.handleChangeDropdown('bloodStatus')}
             />
           </Form.Field>
 

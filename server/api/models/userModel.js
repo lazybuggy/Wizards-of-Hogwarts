@@ -13,7 +13,7 @@ var UserSchema = new Schema({
     gender: {
         type: [{
             type: String,
-            enum: ["female","male"]
+            enum: ["witch","wizard"]
         }],
         required: "Something sassy that sorting hat would say"
     },
@@ -58,7 +58,19 @@ var UserSchema = new Schema({
     species: {
         type: String,
         default: "human"
+    },
+    wand: {
+        type: String,
+        default: ""
+    },
+    patronus: {
+        type: String,
+        default: ""
+    },
+    boggart: {
+        type: String,
+        default: ""
     }
 });
 
-module.exports = mongoose.model('User', UserSchema);
+module.exports = mongoose.model('User', UserSchema, 'users');

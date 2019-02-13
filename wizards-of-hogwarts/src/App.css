@@ -27,11 +27,4 @@
   to { transform: scale(1.2); }
 }
 
-body{
-    background: url('http://i.imgur.com/shPPhft.jpg') no-repeat fixed;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
 
-}

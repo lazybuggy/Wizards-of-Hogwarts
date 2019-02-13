@@ -1,4 +1,5 @@
 var express = require('express');
+var cors = require('cors');
 require('./database');
 
 //model loading
@@ -8,7 +9,7 @@ var Character = require('./api/models/characterModel');
 var bodyParser = require('body-parser');
 
 var app = express();
-
+app.use(cors());
 
 var port = process.env.PORT || '3001';
 

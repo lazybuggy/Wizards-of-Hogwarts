@@ -1,65 +1,181 @@
 import React, { Component } from 'react';
-import { Form, Button } from 'semantic-ui-react'
-import QuestionOne from './QuestionOne'
+import Question from './Question'
 
 class HouseQuestions extends Component{
 
     state = {
         question: 1,
-        gryffindor: 0,
-        hufflepuff: 0,
-        ravenclaw: 0,
-        slytherin: 0
+        houses: [
+            {
+                name: 'Gryffindor',
+                score: 0
+            },
+            {
+                name: 'Ravenclaw',
+                score: 0
+            },
+            {
+                name: 'Hufflepuff',
+                score: 0
+            },
+            {
+                name: 'Slytherin',
+                score: 0
+            }
+        ],
+        questionsArray: ['Q1','Q2','Q3','Q4','Q5'],
+        answersArray: [
+            {
+                ravenclaw: 'Q1 RAVEN',
+                slytherin: 'Q1 SLYTHERIN',
+                hufflepuff: 'Q1 HUFFLE',
+                gryffindor: 'Q1 GRYFFINDOR'
+            },
+            {
+                ravenclaw: 'Q2 RAVEN',
+                slytherin: 'Q2 SLYTHERIN',
+                hufflepuff: 'Q2 HUFFLE',
+                gryffindor: 'Q2 GRYFFINDOR'
+            },
+            {
+                ravenclaw: 'Q3 RAVEN',
+                slytherin: 'Q3 SLYTHERIN',
+                hufflepuff: 'Q3 HUFFLE',
+                gryffindor: 'Q3 GRYFFINDOR'
+            },
+            {
+                ravenclaw: 'Q4 RAVEN',
+                slytherin: 'Q4 SLYTHERIN',
+                hufflepuff: 'Q4 HUFFLE',
+                gryffindor: 'Q4 GRYFFINDOR'
+            },
+            {
+                ravenclaw: 'Q5 RAVEN',
+                slytherin: 'Q5 SLYTHERIN',
+                hufflepuff: 'Q5 HUFFLE',
+                gryffindor: 'Q5 GRYFFINDOR'
+            }
+        ]
     }
 
-    nextQuestion = (house) => {
-        const { question, gryffindor, hufflepuff,ravenclaw,slytherin } = this.state
-        if(house == 'gryffindor'){
-            this.setState({
-                gryffindor: gryffindor+1
-            })
-        }else if(house == 'hufflepuff'){
-            this.setState({
-                hufflepuff: hufflepuff+1
-            })
-        }else if(house == 'ravenclaw'){
-            this.setState({
-                ravenclaw: ravenclaw+1
-            })
-        }else{
-            this.setState({
-                slytherin: slytherin+1
-            })
-        }
-        this.setState({ 
+    gryffindorClicked = () => {
+        const { question, houses } = this.state
+        const updatedArray = [...houses]
+        updatedArray[0].score = updatedArray[0].score + 1
+
+        this.setState({
             question: question+1
         })
     }
 
-    handleChange = input => event => {
+    ravenclawClicked = () => {
+        const { question, houses } = this.state
+        const updatedArray = [...houses]
+        updatedArray[1].score = updatedArray[1].score + 1
+
         this.setState({
-            [input] : event.target.value 
+            question: question+1
         })
     }
-    render(){
-        //const {gryffindor, slytherin, hufflepuff, ravenclaw} = this.state;
-        //const userValues = {firstName, lastName, bloodStatus, gender};
+
+    hufflepuffClicked = () => {
+        const { question, houses } = this.state
+        const updatedArray = [...houses]
+        updatedArray[2].score = updatedArray[2].score + 1
+
+         this.setState({
+            question: question+1
+        })
+    }
+
+    slytherinClicked = () => {
+        const { question, houses } = this.state
+        const updatedArray = [...houses]
+        updatedArray[3].score = updatedArray[3].score + 1
+
+        this.setState({
+            question: question+1
+        })
+    }
+
+    DetermineHouse(){
+
+        const { houses } = this.state
         
-        console.log("slty"+this.state.slytherin);
-        console.log("huffle"+this.state.hufflepuff);
-        console.log("raven"+this.state.ravenclaw);
-        console.log("gry"+this.state.gryffindor);
+        const maxScore = Math.max(...Array.from(houses, house => house.score));
+        const chosenHouse = houses.find(house => house.score === maxScore);
+
+        console.log("WINning score "+maxScore);
+
+        // this.props.setHouse('house',chosenHouse.name);
+
+        return chosenHouse.name
+
+    }
+
+
+    render(){
+        const {answersArray, questionsArray} = this.state;
+        const answers = answersArray;
+        const questions = questionsArray;
+
+        console.log("state ..."+ this.state.question);
+        console.log("REAL GRY"+this.state.houses[0].score);
+        console.log("REAL rav"+this.state.houses[1].score);
+        console.log("REAL huffle"+this.state.houses[2].score);
+        console.log("REAL slythhhå"+this.state.houses[3].score);
 
         switch(this.state.question){
             case 1:
-                return <QuestionOne
-                    nextQuestion={this.nextQuestion}
-                    handleChange = {this.handleChange}
-                   // values = {userValues}
+                return <Question
+                    huffClicked={this.hufflepuffClicked}
+                    slyClicked={this.slytherinClicked}
+                    gryffClicked={this.gryffindorClicked}
+                    ravenClicked={this.ravenclawClicked}
+                    question={questions[0]}
+                    answers = {answers[0]}
                 />
             case 2:
-                //return houseQuestionaire  .. WizardsHouse
-            //case 3 is success
+                return <Question
+                    huffClicked={this.hufflepuffClicked}
+                    slyClicked={this.slytherinClicked}
+                    gryffClicked={this.gryffindorClicked}
+                    ravenClicked={this.ravenclawClicked}
+                    question={questions[1]}
+                    answers = {answers[1]}
+                />
+            case 3:
+                return <Question
+                    huffClicked={this.hufflepuffClicked}
+                    slyClicked={this.slytherinClicked}
+                    gryffClicked={this.gryffindorClicked}
+                    ravenClicked={this.ravenclawClicked}
+                    question={questions[2]}
+                    answers = {answers[2]}
+                />
+            case 4:
+                return <Question
+                    huffClicked={this.hufflepuffClicked}
+                    slyClicked={this.slytherinClicked}
+                    gryffClicked={this.gryffindorClicked}
+                    ravenClicked={this.ravenclawClicked}
+                    question={questions[3]}
+                    answers = {answers[3]}
+                />
+            case 5:
+                return <Question
+                    huffClicked={this.hufflepuffClicked}
+                    slyClicked={this.slytherinClicked}
+                    gryffClicked={this.gryffindorClicked}
+                    ravenClicked={this.ravenclawClicked}
+                    question={questions[4]}
+                    answers = {answers[4]}
+                />
+            case 6:
+                return <div>
+                  {/* //  <h1>URGHH {this.DetermineHouse()}</h1> */}
+                    <button onClick={this.props.setHouse(this.DetermineHouse())}>REVEAL HOUSE </button>
+                    </div>
         }
     }
 }

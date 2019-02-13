@@ -1,7 +1,9 @@
+//THIS CLASS ISNT BEING USED LUCIA
+//FEB 12 2019
+
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
-import NewUserForm from './NewUserForm';
 import MainForm from './AdventureGame';
 import { Container } from 'semantic-ui-react'
 
@@ -17,13 +19,13 @@ class App extends Component {
   }
 
   componentDidMount(){
-    fetch('/users')
-      .then(res => res.json())
-      .then(users => this.setState({users}));
+    // fetch('/users')
+    //   .then(res => res.json())
+    //   .then(users => this.setState({users}));
 
     fetch('/characters')
       .then(res => res.json())
- //     .then(characters => this.setState({characters}));
+      .then(characters => this.setState({characters}));
   }
   showUserForm(){
     this.setState({showForm: !this.state.showForm})
