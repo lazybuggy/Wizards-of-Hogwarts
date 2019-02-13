@@ -1,6 +1,7 @@
 import React, { Component} from 'react';
 import { Form, Button } from 'semantic-ui-react';
 import Typing from 'react-typing-animation';
+import Typist from 'react-typist';
 
 class Question extends Component{
 
@@ -32,13 +33,15 @@ class Question extends Component{
     render(){
     
       return(
+<div>
+        {/* <Typist cursor={{ hideWhenDone: true }}>
+          {this.props.question} 
+        </Typist>
 
+        {this.props.question}  */}
         <Form>
 
-          <Typing>
-          <span>{this.props.question} </span>
-          </Typing>
-        
+          <h1> {this.props.question}</h1>
 
           <Button onClick={this.HufflepuffClicked}>{this.props.answers.hufflepuff}</Button>
           <Button onClick={this.RavenclawClicked}>{this.props.answers.ravenclaw}</Button>
@@ -46,6 +49,7 @@ class Question extends Component{
           <Button onClick={this.GryffindorClicked}>{this.props.answers.gryffindor}</Button>
 
         </Form>
+        </div>
       )
          
     }
