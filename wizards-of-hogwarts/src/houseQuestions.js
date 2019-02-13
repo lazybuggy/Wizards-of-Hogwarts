@@ -23,37 +23,43 @@ class HouseQuestions extends Component{
                 score: 0
             }
         ],
-        questionsArray: ['Q1','Q2','Q3','Q4','Q5'],
+        questionsArray: [
+            'Given the choice, would you rather invent a potion that would gurantee you...',
+            'Which path do you take?',
+            'How would you like to be known to history?',
+            'You and 2 friends need to cross a bridge guarded by a river troll who insists on fighting 1 of you before he will let all of you pass. Do you...',
+            'Which would you rather be...'
+        ],
         answersArray: [
             {
-                ravenclaw: 'Q1 RAVEN',
-                slytherin: 'Q1 SLYTHERIN',
-                hufflepuff: 'Q1 HUFFLE',
-                gryffindor: 'Q1 GRYFFINDOR'
+                ravenclaw: 'Wisdom',
+                slytherin: 'Power',
+                hufflepuff: 'Love',
+                gryffindor: 'Glory'
             },
             {
-                ravenclaw: 'Q2 RAVEN',
-                slytherin: 'Q2 SLYTHERIN',
-                hufflepuff: 'Q2 HUFFLE',
-                gryffindor: 'Q2 GRYFFINDOR'
+                ravenclaw: 'The cobblestone street lined with ancient buildings',
+                slytherin: 'The narrow, dark, lantern-lit alley',
+                hufflepuff: 'The wide, sunny, grassy lane',
+                gryffindor: 'The twisting, leafy path through the woods'
             },
             {
-                ravenclaw: 'Q3 RAVEN',
-                slytherin: 'Q3 SLYTHERIN',
-                hufflepuff: 'Q3 HUFFLE',
-                gryffindor: 'Q3 GRYFFINDOR'
+                ravenclaw: 'The wise',
+                slytherin: 'The Great',
+                hufflepuff: 'The Good',
+                gryffindor: 'The Bold'
             },
             {
-                ravenclaw: 'Q4 RAVEN',
-                slytherin: 'Q4 SLYTHERIN',
-                hufflepuff: 'Q4 HUFFLE',
-                gryffindor: 'Q4 GRYFFINDOR'
+                ravenclaw: 'Attempt to confuse the troll into letting all 3 of you pass without fighting',
+                slytherin: 'Suggest that all 3 of you should fight (without telling the troll)',
+                hufflepuff: 'Suggest drawing lots to decide which of you will fight',
+                gryffindor: 'Volunteer to fight'
             },
             {
-                ravenclaw: 'Q5 RAVEN',
-                slytherin: 'Q5 SLYTHERIN',
-                hufflepuff: 'Q5 HUFFLE',
-                gryffindor: 'Q5 GRYFFINDOR'
+                ravenclaw: 'Imitated',
+                slytherin: 'Feared',
+                hufflepuff: 'Liked',
+                gryffindor: 'Praised'
             }
         ]
     }
